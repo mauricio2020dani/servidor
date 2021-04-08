@@ -8,11 +8,19 @@ message.destinationName="mdpilatuna.fie@unach.edu.ec/RASP";
 client.send(message);
 }
 
+function hora2(){
+	h = document.getElementById("hselec2").value;
+console.log(h);
+message = new Paho.MQTT.Message("Q "+h)
+message.destinationName="mdpilatuna.fie@unach.edu.ec/RASP";
+client.send(message);
+}
+
 function LED_On() {
 	//alert("led on");
 	console.log("led on");
 	//document.getElementById("sensor").innerHTML="led on";
-	message = new Paho.MQTT.Message("ON");
+	message = new Paho.MQTT.Message("LED ON");
     	message.destinationName = "mdpilatuna.fie@unach.edu.ec/RASP";
     	client.send(message);
   
@@ -20,7 +28,7 @@ function LED_On() {
 function LED_Off(){	
 	//alert("led off");
 	console.log("led off");
-	message = new Paho.MQTT.Message("OFF");
+	message = new Paho.MQTT.Message("LED OFF");
     	message.destinationName = "mdpilatuna.fie@unach.edu.ec/RASP";
     	client.send(message);
 	//document.getElementById("sensor").innerHTML="led off";
