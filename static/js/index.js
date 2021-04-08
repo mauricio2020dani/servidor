@@ -1,5 +1,13 @@
 //https://www.eclipse.org/paho/clients/js/
 
+function hora(){
+	h = document.getElementById("hselec").value;
+console.log(h);
+message = new Paho.MQTT.Message("H "+h)
+message.destinationName="mdpilatuna.fie@unach.edu.ec/RASP";
+client.send(message);
+}
+
 function LED_On() {
 	//alert("led on");
 	console.log("led on");
@@ -17,11 +25,6 @@ function LED_Off(){
     	client.send(message);
 	//document.getElementById("sensor").innerHTML="led off";
 }
-
-
-
-
-
 
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
