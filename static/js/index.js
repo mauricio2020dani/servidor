@@ -6,6 +6,7 @@ console.log(h);
 message = new Paho.MQTT.Message("H "+h)
 message.destinationName="mdpilatuna.fie@unach.edu.ec/RASP";
 client.send(message);
+document.getElementById("ton").innerHTML=h;
 }
 
 function hora2(){
@@ -14,6 +15,7 @@ console.log(h);
 message = new Paho.MQTT.Message("Q "+h)
 message.destinationName="mdpilatuna.fie@unach.edu.ec/RASP";
 client.send(message);
+document.getElementById("toff").innerHTML=h;
 }
 
 function LED_On() {
@@ -80,6 +82,14 @@ function LED_Off(){
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-	  document.getElementById("sensor").innerHTML=message.payloadString;
+	entrada=(message.payloadString).split(" ")[0];
+	dato=(message.payloadString).split(" ")[1];
+	  if (entrada=he){
+	  document.getElementById("HORAACTUAL").innerHTML=dato;
+	  }
+		   else if (entrada=ha){
+			   document.getElementById("sensor").innerHTML=dato;
+	  }
   }
+  
   
