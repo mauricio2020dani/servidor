@@ -84,10 +84,10 @@ function LED_Off(){
     console.log("onMessageArrived:"+message.payloadString);
 	entrada=(message.payloadString).split(" ")[0];
 	dato=(message.payloadString).split(" ")[1];
-	  if (entrada="he"){
+	  if (entrada=="he"){
 	  document.getElementById("HORAACTUAL").innerHTML=dato;
 	  }
-		   else if (entrada="ha"){
+		   else {
 			   document.getElementById("sensor").innerHTML=dato;
 	  }
   }
